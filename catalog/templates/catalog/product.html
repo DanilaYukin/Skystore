@@ -1,0 +1,12 @@
+{% extends 'catalog/base.html' %}
+{% block title %}Детали продукта{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ name }}</h2>
+    <p>Категория: {{ category }}</p>
+    <p>Описание: {{ description|truncatechars:100 }}</p>
+    <p>Цена: {{ price }}</p>
+    <p>Дата создания: {{ created_at|date:"d M Y" }}</p>
+    <p>Дата обновления: {{ updated_at|date:"d M Y" }}</p>
+</div>
+{% endblock %}
