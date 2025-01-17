@@ -11,6 +11,7 @@ def product_page(request, pk):
         'price': product.price,
         'created_at': product.created_at,
         'updated_at': product.updated_at,
+        'id': product.pk,
     }
     return render(request, 'catalog/product.html', context=context)
 

@@ -2,6 +2,9 @@
 {% block title %}Детали продукта{% endblock %}
 {% load my_tags %}
 {% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Детали продукта</h1>
+</div>
 <div class="container mt-5">
     <img src="{{ product.image | media_filter }}">
     <h2>{{ name }}</h2>
