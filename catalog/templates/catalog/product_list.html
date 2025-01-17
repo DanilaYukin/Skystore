@@ -8,12 +8,12 @@
     {% for product in products %}
     <div class="card-group">
         <div class="card">
-            <img src="{{ product.image | media_filter }}">
+            <img src="{{ image | media_filter }}">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
                 <p class="card-text"><small class="text-body-secondary">Last updated {{ product.updated_at|date:'d M Y' }}</small></p>
-                <a href="{% url 'catalog:product' product.pk %}" class="btn btn-primary">Подробнее</a>
+                <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-primary">Подробнее</a>
             </div>
         </div>
     </div>
