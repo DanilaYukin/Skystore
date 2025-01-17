@@ -14,4 +14,7 @@
     <p>Дата создания: {{ created_at|date:"d M Y" }}</p>
     <p>Дата обновления: {{ updated_at|date:"d M Y" }}</p>
 </div>
+<div class="container">
+    <a href="{% url 'catalog:home' %}" class="btn btn-primary">Назад</a>
+</div>
 {% endblock %}
