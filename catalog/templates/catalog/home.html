@@ -1,17 +1,16 @@
 {% extends 'catalog/base.html' %}
+{% load my_tags %}
 {% block content %}
 <div class="card mb-4 box-shadow">
     {% for product in products %}
     <div class="card-group">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">{{ product.name }}</h4>
+        <div class="card">
+            <img src="{{ product.image | media_filter }}">
             <div class="card-body">
-                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                    <li>Категория: {{ product.category }}</li>
-                    <li>Описание: {{ product.description|truncatechars:100 }}</li>
-                    <li>Дата создания: {{ product.created_at|date:'d M Y' }}</li>
-                    <li>Дата обновления: {{ product.updated_at|date:'d M Y' }}</li>
-                </ul>
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text"><small class="text-body-secondary">Last updated {{ product.updated_at|date:'d M Y' }}</small></p>
+                <a href="{% url 'catalog:product' product.pk %}" class="btn btn-primary">Подробнее</a>
             </div>
         </div>
     </div>
