@@ -40,7 +40,7 @@ class BlogUpdateView(UpdateView):
     model = Blog
     template_name = 'blog/blog_form.html'
     fields = ['content', 'publication_sign', 'title', 'preview']
-    success_url = reverse_lazy('myblog:blog_detail')
+    success_url = reverse_lazy('myblog:blogs_list')
 
 
 class BlogDeleteView(DeleteView):
