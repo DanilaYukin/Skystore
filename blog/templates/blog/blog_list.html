@@ -9,7 +9,7 @@
     {% for blog in blogs %}
     <li class="list-group-item">
         <a href="{% url 'myblog:blog_detail' blog.pk %}">{{ blog.title }}</a>
-        <a href="{% url 'myblog:blog_create' %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
+        <a href="{% url 'myblog:blog_update' blog.pk %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
         <a href="{% url 'myblog:blog_delete' blog.pk %}" class="btn btn-sm btn-danger ml-1">Удалить</a>
     </li>
     {% endfor %}
