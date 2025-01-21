@@ -1,25 +1,43 @@
-from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .forms import ProductForm
 from .models import Product
 
 
-def product_page(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    context = {
-        'category': product.category,
-        'name': product.name,
-        'description': product.description,
-        'price': product.price,
-        'created_at': product.created_at,
-        'updated_at': product.updated_at,
-    }
-    return render(request, 'catalog/product.html', context=context)
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+    template_name = 'catalog/product_form.html'
+    success_url = reverse_lazy('catalog:product_list')
 
 
-def product_list(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'catalog/home.html', context=context)
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+    template_name = 'catalog/product_form.html'
+    success_url = reverse_lazy('catalog:product_list')
 
 
-def contacts_page(request):
-    return render(request, 'catalog/contacts.html')
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'catalog/product_detail.html'
+    context_object_name = 'product'
+
+
+class ProductListView(ListView):
+    model = Product
+    template_name = 'catalog/product_list.html'
+    context_object_name = 'products'
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'catalog/product_confirm_delete.html'
+    success_url = reverse_lazy('catalog:product_list')
+
+
+
+class ProductTemplateView(TemplateView):
+    model = Product
+    template_name = "catalog/contacts.html"
