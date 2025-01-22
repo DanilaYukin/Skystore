@@ -6,7 +6,7 @@
     <h1 class="display-4">Детали продукта</h1>
 </div>
 <div class="container mt-5">
-    <img src="{{ product.image | media_filter }}">
+    <img src="{{ product.image | image_filter }}">
     <h2>{{ product.name }}</h2>
     <p>Категория: {{ product.category }}</p>
     <p>Описание: {{ product.description|truncatechars:100 }}</p>

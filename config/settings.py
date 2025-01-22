@@ -13,8 +13,6 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
-import users.models
-
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,6 +42,7 @@ INSTALLED_APPS = [
     'catalog',
     'blog',
     'users',
+
 ]
 
 MIDDLEWARE = [
@@ -142,7 +141,7 @@ EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'Skystore.blog@mail.ru'
+EMAIL_HOST_USER = 'skystore.blog@mail.ru'
 EMAIL_HOST_PASSWORD = 'YUw7P1Tx2Fy1mufq2ea6'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
