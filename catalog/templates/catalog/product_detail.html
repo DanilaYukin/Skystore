@@ -13,6 +13,8 @@
     <p>Цена: {{ product.price }}</p>
     <p>Дата создания: {{ product.created_at|date:"d M Y" }}</p>
     <p>Дата обновления: {{ product.updated_at|date:"d M Y" }}</p>
+    <a href="{% url 'catalog:product_update' product.pk %}" class="btn btn-secondary">Редактировать</a>
     <a href="{% url 'catalog:product_list' %}" class="btn btn-primary">Вернуться в каталог</a>
+    <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-danger">Удалить</a>
 </div>
 {% endblock %}
