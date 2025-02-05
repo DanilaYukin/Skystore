@@ -53,7 +53,7 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'catalog/product_confirm_delete.html'
     success_url = reverse_lazy('catalog:product_list')
 
-    def get_form_class(self):
+    def can_delete_class(self):
         user = self.request.user
         if user == self.object.owner:
             return ProductForm
