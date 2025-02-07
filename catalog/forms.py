@@ -7,7 +7,7 @@ from catalog import constanta
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'image', 'price', 'category']
+        fields = ['name', 'description', 'image', 'price', 'category', 'publication_status']
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -55,3 +55,9 @@ class ProductForm(forms.ModelForm):
         if price < 0:
             raise ValidationError('Цена введена неправильно')
         return price
+
+
+class ProductModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['publication_status']
