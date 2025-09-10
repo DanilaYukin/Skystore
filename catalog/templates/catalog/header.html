@@ -9,6 +9,16 @@
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_list' %}">Каталог</a>
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
         <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_form' %}">Создать продукт</a>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                Категории
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'catalog:category_3_list' %}">Техника</a></li>
+                <li><a class="dropdown-item" href="{% url 'catalog:category_4_list' %}">Товары для детей</a></li>
+            </ul>
+        </div>
         {% if user.is_authenticated %}
         <form method="post" action="{% url 'users:logout' %}" style="display: inline">
             {% csrf_token %}
